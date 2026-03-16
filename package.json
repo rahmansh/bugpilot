@@ -1,0 +1,27 @@
+{
+  "name": "bugpilot",
+  "version": "1.0.0",
+  "description": "Bug tracking application - monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/client & npm run dev --workspace=apps/server",
+    "dev:client": "npm run dev --workspace=apps/client",
+    "dev:server": "npm run dev --workspace=apps/server",
+    "build": "npm run build --workspace=apps/client && npm run build --workspace=apps/server",
+    "build:client": "npm run build --workspace=apps/client",
+    "build:server": "npm run build --workspace=apps/server"
+  },
+  "keywords": [
+    "bug-tracker",
+    "monorepo"
+  ],
+  "author": "Sajedur Rahman",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
