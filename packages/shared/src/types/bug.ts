@@ -1,28 +1,30 @@
-export interface Bug {
-  id: string
-  title: string
-  description: string
-  status: 'open' | 'in-progress' | 'closed'
-  priority: 'low' | 'medium' | 'high'
-  assignee?: string
-  createdAt: Date
-  updatedAt: Date
+export type BugStatus = 'open' | 'in-progress' | 'resolved' | 'closed';
+export type BugPriority = 'low' | 'medium' | 'high' | 'critical';
+export interface Bug{
+  id: string;
+  title: string;
+  description: string;
+  status: BugStatus;
+  priority: BugPriority;
+  assignee?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
-export type BugStatus = Bug['status']
-export type BugPriority = Bug['priority']
-
-export interface CreateBugDTO {
-  title: string
-  description: string
-  priority: BugPriority
-  assignee?: string
+// Create a new bug (client -> server)
+// DTO - Data Transfer Object
+export interface CreateBugDTO{
+  title: string;
+  description: string;
+  priority: BugPriority;
+  assignee?: string;
 }
 
-export interface UpdateBugDTO {
-  title?: string
-  description?: string
-  status?: BugStatus
-  priority?: BugPriority
-  assignee?: string
+// UPDATE an existing bug
+export interface UpdateBugDTO{
+  title?: string;
+  description?: string;
+  status?: BugStatus;
+  priority?: BugPriority;
+  assignee?: string;
 }
