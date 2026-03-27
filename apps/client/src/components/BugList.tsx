@@ -28,7 +28,7 @@ export function BugList(){
 
     return (
         <div>
-            <h1>Bug List</h1>
+            <h1>Bug List ({bugs.length})</h1>
             {
                 bugs.map(bug => (
                     <div key={bug.id} style={{ border: '1px solid #ccc', padding: '12px', marginBottom: '8px', borderRadius: '6px' }}>
