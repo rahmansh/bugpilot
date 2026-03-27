@@ -5,6 +5,16 @@ export function BugList(){
     const [bugs, setBugs] = useState<Bug[]>([]);
     const [loading, setLoading] = useState(true);
 
+    const getPriorityColor = (priority: string) => {
+        switch(priority){
+            case 'critical': return 'red'
+            case 'high': return 'orange'
+            case 'medium': return 'yellow'
+            case 'low': return 'gray'
+            default: return 'black'
+        }
+    }
+
     useEffect(() => {
         fetch('http://localhost:5001/api/bugs')
         .then(res => res.json())
@@ -25,7 +35,7 @@ export function BugList(){
                         <strong>{bug.title}</strong>
                         <p>{bug.description}</p>
                         <span>Status: {bug.status}</span>
-                        <span className="ml-2">Priority: {bug.priority}</span>
+                        <span className="ml-2" style={{color: getPriorityColor(bug.priority), fontWeight: 'bold'}}>Priority: {bug.priority}</span>
                     </div>
                 ))
             }
