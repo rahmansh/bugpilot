@@ -1,12 +1,11 @@
-import { Button } from "./components/ui/button"
+import { BugList } from "./components/BugList";
 
 function App() {
 
 
   return (
-    <div>
-      <h1>BugPilot</h1>
-      <Button>Click me!</Button>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '24px' }}>
+      <BugList/>
     </div>
   )
 }
