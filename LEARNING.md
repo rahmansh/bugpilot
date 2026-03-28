@@ -36,6 +36,9 @@ Build a full-stack feature to display bugs from the API
 
 
 ### Self-Assesment Quiz
+
+#### Section 1: Project Structure & Monorepo
+
 1. What are the three main folders in monorepo and what does each contain?
 - Three main folders: apps/ (contains client and server application), packages/ (contains shared code like types), and the root folder (contains workspace configuration)
 
@@ -55,3 +58,20 @@ App packages.json:
 - It tell npm "scan the apps/ and packages/ folders and treat any subfolder with a package.json as part of this monorepo workspace.
 
 
+#### Section 2: Shared Types (packages/shared)
+
+**Critical Insight:** TypeScript types don't exist at runtime!
+
+#### This is a trick question!
+4. If the server sends a bug with status: 'pending' (which isn't in BugStatus type), what happens? Will TypeScript catch it?
+
+**Answer:** NO! TypeScript only checks at compile time(when writing code), not at run time. When data comes over HTTP as JSON, TypeScript can't validate it. The client will receive `{status: 'pending'}` without errors, even though it violates the BugStatus type.
+
+**Why:**
+- TypeScript is erased when code compiles to JavaScript
+- Network data (JSON) has no type information
+- `response.json()` returns untyped data that we *tell* TypeScript to trust.
+
+**Solution:** Use runtime validation libraries like Zod or io-ts to validate API responses.
+
+**Key Takeaway:** TypeScript = compile-time safety only. Always validate external data at runtime!
