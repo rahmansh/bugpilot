@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bugsRouter from './routes/bugs';
+import usersRouter from './routes/users'
 
 
 const app = express();
@@ -14,6 +15,8 @@ app.get("/", (req, res) => {
 })
 
 app.use('/api/bugs', bugsRouter);
+
+app.use('/api/users', usersRouter)
 
 // Start server
 app.listen(PORT, () => {
