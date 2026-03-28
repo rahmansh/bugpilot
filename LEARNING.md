@@ -75,3 +75,36 @@ App packages.json:
 **Solution:** Use runtime validation libraries like Zod or io-ts to validate API responses.
 
 **Key Takeaway:** TypeScript = compile-time safety only. Always validate external data at runtime!
+
+
+#### Section 3: Server (Express API)
+
+5.  What is Router() in Express and why do we use it instead of putting all routes directly in index.ts?
+**Answer:** Router() creates a mini Express application that can 
+  handle routes and middleware independently. We use it to
+   organize routes by feature (bugs, users, projects) into
+   separate files instead of cramming everything into
+  index.ts. This keeps code modular, maintainable, and
+  scalable. Each router focuses on one feature, making it
+  easy to find code, avoid merge conflicts, and test in
+  isolation. It's the industry-standard pattern for
+  building professional APIs with many endpoints.
+
+
+6. What's middleware in Express? Name all the middleware we use and what each does.
+**Answer:** app.use(cors())
+app.use(express.json())
+
+What if you forgot the [] in useState<Bug[]> and wrote useState<Bug>? What would break?
+
+
+
+
+
+
+
+
+
+
+
+
