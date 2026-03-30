@@ -29,4 +29,16 @@ router.get('/', (req, res) => {
     res.json(bugs);
 })
 
+router.get("/:id", (req, res) => {
+    const {id} = req.params;
+    const bug = bugs.find(b => b.id === id);
+    
+    if(!bug){
+        return res.status(404).json({error: 'Bug not found'})
+    }
+
+    res.json(bug);
+    
+})
+
 export default router;
