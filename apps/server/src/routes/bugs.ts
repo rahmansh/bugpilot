@@ -1,5 +1,8 @@
 import { Router } from "express";
 import {Bug} from '@bugpilot/shared';
+import { CreateBugDTO } from "@bugpilot/shared";
+import crypto from 'crypto';
+
 
 const router = Router();
 
@@ -39,6 +42,21 @@ router.get("/:id", (req, res) => {
 
     res.json(bug);
     
+})
+
+router.post("/", (req, res) => {
+    const bugData: CreateBugDTO = req.body;
+
+    const newBug : Bug = {
+        ...bugData,
+        id: crypto.randomUUID(),
+        status: 'open',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+    }
+
+    bugs.push(newBug);
+    res.status(201).json(newBug)
 })
 
 export default router;
