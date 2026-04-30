@@ -13,7 +13,7 @@
 | Challenge | Status | First Try | Last Try | Times Practiced | Mastered |
 |-----------|--------|-----------|----------|-----------------|----------|
 | 1. Shared Type | ✅ | 2026-03-28 | 2026-04-30 | 2 | ✅ |
-| 2. GET Endpoint | ✅ | 2026-03-30 | - | 1 | ✅ |
+| 2. GET Endpoint | ✅ | 2026-03-30 | 2026-04-30 | 2 | ✅ |
 | 3. Detail Component | ✅ | 2026-03-31 | - | 1 | ✅ |
 | 4. POST Endpoint | ✅ | 2026-04-01 | - | 1 | ✅ |
 | 5. Create Form | ⏳ | - | - | 0 | ⬜ |
